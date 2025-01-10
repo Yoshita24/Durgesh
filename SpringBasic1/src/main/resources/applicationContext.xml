@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+     <!--   https://docs.spring.io/spring-framework/docs/4.2.x/spring-framework-reference/html/xsd-configuration.html-->
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:util="http://www.springframework.org/schema/util" xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd"> <!-- bean definitions here -->
+
+
+    <!--below is with propery refer for which setter is required in class-->
+    <!--
+    <bean id="userService" class="org.example.service.UserService">
+
+    </bean>
+    <bean id="userController" class="org.example.controller.UserController">
+        <property name="userService" ref="userService">
+        </property>
+    </bean>-->
+    <!--below is used when constructor is being used-->
+    <!--
+    <bean id="userService" class="org.example.service.UserService">
+
+    </bean>
+    <bean id="userController" class="org.example.controller.UserController">
+        <constructor-arg name="userService" ref="userService">
+        </constructor-arg>
+    </bean>-->
+
+   <!-- https://www.geeksforgeeks.org/spring-autowiring/-->
+    <bean id="userService" class="org.example.service.UserService" autowire="byName">
+
+    </bean>
+    <bean id="userController" class="org.example.controller.UserController" >
+        <property name="userService" ref="userService">
+
+        </property>
+    </bean>
+</beans>

@@ -1,0 +1,22 @@
+Start Zookeeper
+C:\soft\kafka_2.13-3.9.0>bin\windows\zookeeper-server-start.bat config\zookeeper.properties
+
+Start Kafka
+C:\soft\kafka_2.13-3.9.0>bin\windows\kafka-server-start.bat config\server.properties
+
+
+Create Topic
+
+C:\soft\kafka_2.13-3.9.0>bin\windows\kafka-topics.bat --create --topic user-topic --bootstrap-server localhost:9092
+Created topic user-topic.
+
+$ bin/kafka-topics.sh --create --topic quickstart-events --bootstrap-server localhost:9092
+
+$ bin/kafka-topics.sh --create --topic quickstart-events --bootstrap-server localhost:9092
+
+Producer topic
+C:\soft\kafka_2.13-3.9.0>bin\windows\kafka-console-producer.bat --topic user-topic --bootstrap-server localhost:9092
+>hi
+
+Consumer topic
+C:\soft\kafka_2.13-3.9.0>bin\windows\kafka-console-consumer.bat --topic user-topic --from-beginning --bootstrap-server localhost:9092

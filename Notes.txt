@@ -1,0 +1,9 @@
+Java Version : https://en.wikipedia.org/wiki/Java_version_history
+
+https://www.youtube.com/playlist?list=PL0zysOflRCekkNEe4FDmdUN3FATodg3Yf
+
+Bean link - https://docs.spring.io/spring-framework/docs/4.2.x/spring-framework-reference/html/xsd-configuration.html
+
+Maven repo - https://mvnrepository.com/artifact/org.springframework/spring-context/6.2.0
+
+https://chatgpt.com/share/673e354e-8530-8009-b691-287ce2c7a6fc

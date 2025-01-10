@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--spring core config file google search -->
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- bean definitions here -->
+    <bean id="engine" class="org.example.coreconcepts.Engine">
+
+    </bean>
+    <bean id="car" class="org.example.coreconcepts.Car">
+      <!--  information for injection-->
+        <property name="engine" ref="engine">
+        </property>
+    </bean>
+</beans>
