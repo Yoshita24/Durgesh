@@ -7,3 +7,5 @@ Bean link - https://docs.spring.io/spring-framework/docs/4.2.x/spring-framework-
 Maven repo - https://mvnrepository.com/artifact/org.springframework/spring-context/6.2.0
 
 https://chatgpt.com/share/673e354e-8530-8009-b691-287ce2c7a6fc
+
+https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods
