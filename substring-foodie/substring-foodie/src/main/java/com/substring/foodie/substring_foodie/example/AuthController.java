@@ -39,6 +39,9 @@ public class AuthController {
 
         logger.info("Inside signup email{}",user.getEmail());
         logger.info("Inside signup age {}",user.getAge());
+        logger.info("Inside signup age {}",user.getAge());
+        logger.info("Inside signup age {}",user.getGender());
+
         //String test = null;
         //test.length(); //nullpointerexception generate purposely
         return "we got data";

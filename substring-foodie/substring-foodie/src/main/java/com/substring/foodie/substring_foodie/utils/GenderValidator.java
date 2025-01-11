@@ -12,11 +12,16 @@ public class GenderValidator implements ConstraintValidator<ValidGender,String> 
     private Logger logger = LoggerFactory.getLogger(GenderValidator.class);
     @Override
     public boolean isValid(String s, ConstraintValidatorContext constraintValidatorContext) {
+        logger.info("gender : "+s);
         if((s==null)|| s.isEmpty())
         {
             logger.warn("Invalid string gender");
             return false;
         }
-        return true;
+        if((s.toLowerCase().equals("male"))|| (s.toLowerCase().equals("female")))
+        {
+            return true;
+        }
+        return false;
     }
 }
