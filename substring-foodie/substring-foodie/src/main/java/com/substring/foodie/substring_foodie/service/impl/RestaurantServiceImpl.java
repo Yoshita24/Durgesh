@@ -2,6 +2,7 @@ package com.substring.foodie.substring_foodie.service.impl;
 
 import com.substring.foodie.substring_foodie.dto.RestaurantDto;
 import com.substring.foodie.substring_foodie.entity.Restaurant;
+import com.substring.foodie.substring_foodie.exception.ResourceNotFoundException;
 import com.substring.foodie.substring_foodie.repo.RestaurantRepo;
 import com.substring.foodie.substring_foodie.service.RestaurantService;
 import com.substring.foodie.substring_foodie.utils.Helper;
@@ -33,7 +34,11 @@ public class RestaurantServiceImpl implements RestaurantService {
 
     @Override
     public RestaurantDto updateRestaurant(RestaurantDto restaurantDto, String restaurantId) {
-        return null;
+        Restaurant restaurant = restaurantRepo.findById(restaurantId).orElseThrow(()->new ResourceNotFoundException("Restaurant not found"));
+        restaurant.setName(restaurantDto.getName());
+        restaurant.setAddress(restaurantDto.getAddress());
+      Restaurant restaurant1=  restaurantRepo.save(restaurant);
+        return convertRestaurantToRestaurantDto(restaurant1);
     }
 
     @Override
