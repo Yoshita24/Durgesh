@@ -24,7 +24,7 @@ public class Restaurant {
 
     private LocalTime closeTime;
 
-    private Boolean isOpen=true;
+    private Boolean isOpen = true;
 
     @ManyToOne
     private User user;
