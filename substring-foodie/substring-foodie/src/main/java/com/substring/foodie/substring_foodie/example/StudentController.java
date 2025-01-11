@@ -18,6 +18,8 @@ public class StudentController {
     @RequestMapping("/single")
     public Student student()
     {
+        String temp=null;
+        temp.length();
         Student student = new Student();
         student.setName("AKshansh Sharma");
         student.setAge(22);

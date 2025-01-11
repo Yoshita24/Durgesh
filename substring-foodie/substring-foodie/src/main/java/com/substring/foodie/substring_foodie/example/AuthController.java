@@ -6,6 +6,7 @@ import com.sun.tools.jconsole.JConsoleContext;
 import jakarta.validation.Valid;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -38,7 +39,22 @@ public class AuthController {
 
         logger.info("Inside signup email{}",user.getEmail());
         logger.info("Inside signup age {}",user.getAge());
-
+        //String test = null;
+        //test.length(); //nullpointerexception generate purposely
         return "we got data";
     }
+    //exception handling method : for AuthController only
+    /*@ExceptionHandler(NullPointerException.class)
+    public String handleNullPointerException(NullPointerException ex)
+    {
+        logger.error(ex.getMessage());
+        return ex.getMessage();
+    }
+    @ExceptionHandler(MethodArgumentNotValidException.class)
+    public String handleMethodArgumentNotValidException(MethodArgumentNotValidException ex)
+    {
+        logger.error(ex.getMessage());
+        return "Your input data not valid";
+    }*/
+
 }

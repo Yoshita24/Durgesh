@@ -1,5 +1,6 @@
 package com.substring.foodie.substring_foodie.example.payload;
 
+import com.substring.foodie.substring_foodie.utils.ValidGender;
 import jakarta.validation.constraints.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -10,6 +11,7 @@ import org.hibernate.validator.constraints.Length;
 public class UserDTO {
     @NotEmpty(message = "name is required")
     @Size(min=2,max=20,message = "Name must be between 2 and 20")
+    //@Pattern(regexp = "",message = "Invalid username. Username must contain valid username")
     private String name;
 
 
@@ -22,6 +24,9 @@ public class UserDTO {
 
     @NotEmpty(message = "password is required")
     private String password;
+    @ValidGender
+    private String gender;
+
 
     public UserDTO() {
     }
