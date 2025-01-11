@@ -3,14 +3,20 @@ package com.substring.foodie.substring_foodie.service.impl;
 import com.substring.foodie.substring_foodie.dto.UserDto;
 import com.substring.foodie.substring_foodie.entity.Restaurant;
 import com.substring.foodie.substring_foodie.entity.User;
+import com.substring.foodie.substring_foodie.exception.ResourceNotFoundException;
 import com.substring.foodie.substring_foodie.repo.UserRepository;
 import com.substring.foodie.substring_foodie.service.UserService;
+import com.substring.foodie.substring_foodie.utils.Helper;
 import jakarta.transaction.Transactional;
+import org.springframework.beans.BeanUtils;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
-
 import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
+import java.util.stream.Collectors;
+
 @Service
 public class UserServiceImpl implements UserService {
     private UserRepository userRepository;
@@ -20,7 +26,9 @@ public class UserServiceImpl implements UserService {
     }
     @Override
     public UserDto saveUser(UserDto userdto) {
-        return null;
+        userdto.setId(Helper.generateRandomId());
+        User savedUser = userRepository.save(convertUserDtoToUser(userdto));
+        return convertUserToUserDto(savedUser);
     }
 
     @Override
@@ -29,34 +37,72 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public List<UserDto> getAll() {
-        return List.of();
+    public Page<UserDto> getAll(Pageable pageable) {
+        Page<User> userPage = userRepository.findAll(pageable);
+
+        return userPage.map(user -> convertUserToUserDto(user));
     }
+
 
     @Override
     public List<UserDto> getUserByName(String username) {
-        return List.of();
+        List<User> byNamelist = userRepository.findByName(username);
+        List<UserDto> list = byNamelist.stream().map(user -> convertUserToUserDto(user)).toList();
+        return list;
     }
 
     @Override
     public List<UserDto> getUserByEmail(String email) {
-        return List.of();
+        List<User> byEmailList = userRepository.findByEmail(email);
+        List<UserDto> list = byEmailList.stream().map(user -> convertUserToUserDto(user)).toList();
+        return list;
     }
 
     @Override
     public UserDto getUserById(String userid) {
-        return null;
+       User user= userRepository.findById(userid).orElseThrow(()-> new ResourceNotFoundException("user not found"));
+        return convertUserToUserDto(user);
     }
 
     @Override
     public void deleteUser(String userId) {
-
+            userRepository.deleteById(userId);
     }
 
     @Override
-    public List<UserDto> searchUserName(String keyword) {
+    public List<UserDto> searchUserName(String userName) {
         return List.of();
     }
+
+    private User convertUserDtoToUser(UserDto userDto)
+    {
+        User user = new User();
+        user.setId(userDto.getId());
+        user.setName(userDto.getName());
+        user.setEmail(userDto.getEmail());
+        user.setPassword(userDto.getPassword());
+        user.setPhoneNumber(userDto.getPhoneNumber());
+        user.setAddress(userDto.getAddress());
+        return user;
+    }
+
+    private UserDto convertUserToUserDto(User user)
+    {
+        UserDto userDto = new UserDto();
+        userDto.setId(user.getId());
+        userDto.setName(user.getName());
+        userDto.setEmail(user.getEmail());
+        userDto.setPassword(user.getPassword());
+        userDto.setPhoneNumber(user.getPhoneNumber());
+        userDto.setAddress(user.getAddress());
+        return userDto;
+    }
+    /*private User convertUserDtoToUser(UserDto userDto)
+    {
+        User user = new User();
+        BeanUtils.copyProperties(userDto,user);
+        return user;
+    }*/
 
    /* private UserRepository userRepository;
 

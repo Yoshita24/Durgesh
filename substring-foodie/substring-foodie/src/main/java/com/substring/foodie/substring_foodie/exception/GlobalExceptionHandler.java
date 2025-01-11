@@ -1,8 +1,11 @@
 package com.substring.foodie.substring_foodie.exception;
 
+import com.substring.foodie.substring_foodie.dto.ErrorResponse;
 import com.substring.foodie.substring_foodie.example.AuthController;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.validation.FieldError;
 import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.MethodArgumentNotValidException;
@@ -38,5 +41,12 @@ public class GlobalExceptionHandler {
             errorMap.put(fieldName,message);
         });
         return errorMap;
+    }
+    @ExceptionHandler(ResourceNotFoundException.class)
+    public ResponseEntity<ErrorResponse> handleResourceNotFoundException(ResourceNotFoundException ex)
+    {
+        logger.error(ex.getMessage());
+        ErrorResponse obj =  ErrorResponse.builder().message(ex.getMessage()).status(HttpStatus.NOT_FOUND).build();
+        return new ResponseEntity<>(obj,HttpStatus.NOT_FOUND);
     }
 }
