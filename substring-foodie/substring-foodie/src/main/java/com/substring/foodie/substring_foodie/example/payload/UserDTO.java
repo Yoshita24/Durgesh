@@ -24,7 +24,7 @@ public class UserDTO {
 
     @NotEmpty(message = "password is required")
     private String password;
-    @ValidGender
+    @ValidGender(message="only males and females are allowed")
     private String gender;
 
 
