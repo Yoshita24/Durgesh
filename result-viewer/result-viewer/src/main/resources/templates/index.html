@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Result Viewer</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-50">
+<!-- Navbar -->
+<nav class="bg-white shadow">
+  <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+    <a href="#" class="text-xl font-bold text-blue-600">Result Viewer</a>
+    <button class="block md:hidden text-gray-600 focus:outline-none" id="menu-toggle">
+      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+      </svg>
+    </button>
+    <ul class="hidden md:flex space-x-6" id="menu">
+      <li><a href="#" class="text-gray-600 hover:text-blue-600">Home</a></li>
+      <li><a href="#" class="text-gray-600 hover:text-blue-600">View Result</a></li>
+      <li><a href="#" class="text-gray-600 hover:text-blue-600">Add Result</a></li>
+      <li><a href="#" class="text-gray-600 hover:text-blue-600">Help</a></li>
+    </ul>
+  </div>
+  <div class="md:hidden hidden" id="mobile-menu">
+    <ul class="space-y-4 py-4 px-4 bg-gray-100">
+      <li><a href="#" class="block text-gray-600 hover:text-blue-600">Home</a></li>
+      <li><a href="#" class="block text-gray-600 hover:text-blue-600">View Result</a></li>
+      <li><a href="#" class="block text-gray-600 hover:text-blue-600">Add Result</a></li>
+      <li><a href="#" class="block text-gray-600 hover:text-blue-600">Help</a></li>
+    </ul>
+  </div>
+</nav>
+<!-- Hero Section -->
+<section class="bg-blue-600 text-white py-16">
+  <div class="container mx-auto text-center">
+    <h1 class="text-4xl font-bold">Welcome to Result Viewer</h1>
+    <p class="mt-4 text-lg">Easily access and manage your results with just a few clicks.</p>
+    <a href="#features" class="mt-6 inline-block bg-white text-blue-600 py-2 px-6 rounded-lg shadow hover:bg-gray-100">Learn More</a>
+  </div>
+</section>
+
+<!-- Feature Section -->
+<section id="features" class="py-16">
+  <div class="container mx-auto px-4">
+    <h2 class="text-3xl font-bold text-center mb-8">Features</h2>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <div class="bg-white p-6 rounded-lg shadow">
+        <h3 class="text-xl font-bold mb-4">Fast Access</h3>
+        <p>Quickly retrieve your results with our optimized platform.</p>
+      </div>
+      <div class="bg-white p-6 rounded-lg shadow">
+        <h3 class="text-xl font-bold mb-4">Secure Data</h3>
+        <p>Your results are stored and accessed securely with advanced encryption.</p>
+      </div>
+      <div class="bg-white p-6 rounded-lg shadow">
+        <h3 class="text-xl font-bold mb-4">User-Friendly</h3>
+        <p>Enjoy an intuitive interface that simplifies your experience.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Action Section -->
+<section class="bg-blue-600 text-white py-16">
+  <div class="container mx-auto text-center">
+    <h2 class="text-3xl font-bold mb-4">Ready to Get Started?</h2>
+    <p class="mb-6">Sign up now to experience the convenience of Result Viewer.</p>
+    <a href="#" class="bg-white text-blue-600 py-2 px-6 rounded-lg shadow hover:bg-gray-100">Sign Up</a>
+  </div>
+</section>
+
+<!-- Testimonial Section -->
+<section class="py-16">
+  <div class="container mx-auto px-4">
+    <h2 class="text-3xl font-bold text-center mb-8">What Our Users Say</h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <div class="bg-white p-6 rounded-lg shadow">
+        <p class="italic">"Result Viewer has made accessing my results so simple and stress-free!"</p>
+        <h4 class="mt-4 font-bold">- Alex T.</h4>
+      </div>
+      <div class="bg-white p-6 rounded-lg shadow">
+        <p class="italic">"I love how secure and user-friendly this platform is. Highly recommended!"</p>
+        <h4 class="mt-4 font-bold">- Sarah L.</h4>
+      </div>
+      <div class="bg-white p-6 rounded-lg shadow">
+        <p class="italic">"A game-changer for managing my results efficiently!"</p>
+        <h4 class="mt-4 font-bold">- Michael W.</h4>
+      </div>
+    </div>
+  </div>
+</section>
+</body>
+</html>

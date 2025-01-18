@@ -1,12 +1,13 @@
 package com.substring.foodie.substring_foodie.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.ManyToOne;
-import jakarta.persistence.Table;
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.time.LocalTime;
 
 @Entity
@@ -19,13 +20,18 @@ public class Restaurant {
     private String id;
 
     private String name;
+    @Lob
+    private String description;
     private String address;
+
     private LocalTime openTime;
 
     private LocalTime closeTime;
 
-    private Boolean isOpen = true;
+    private Boolean open = true;
 
+    private LocalDateTime createdDate;
+    private String banner;
     @ManyToOne
     private User user;
 }
