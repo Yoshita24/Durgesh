@@ -12,7 +12,7 @@ public class PageController {
     {
         return "index";
     }
-@GetMapping("")
+    @GetMapping("/view-result")
     public String viewResultForm()
     {
         return "view_result_form";

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymleaf.org">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -17,18 +17,18 @@
       </svg>
     </button>
     <ul class="hidden md:flex space-x-6" id="menu">
-      <li><a href="#" class="text-gray-600 hover:text-blue-600">Home</a></li>
-      <li><a href="#" class="text-gray-600 hover:text-blue-600">View Result</a></li>
-      <li><a href="#" class="text-gray-600 hover:text-blue-600">Add Result</a></li>
-      <li><a href="#" class="text-gray-600 hover:text-blue-600">Help</a></li>
+      <li><a th:href="@{'/home/'}"  class="text-gray-600 hover:text-blue-600">Home</a></li>
+      <li><a th:href="@{'/home/view-result'}"  class="text-gray-600 hover:text-blue-600">View Result</a></li>
+      <li><a th:href="@{'/admin/add-result'}"  class="text-gray-600 hover:text-blue-600">Add Result</a></li>
+      <li><a th:href="@{'/home/help'}"  class="text-gray-600 hover:text-blue-600">Help</a></li>
     </ul>
   </div>
   <div class="md:hidden hidden" id="mobile-menu">
     <ul class="space-y-4 py-4 px-4 bg-gray-100">
-      <li><a href="#" class="block text-gray-600 hover:text-blue-600">Home</a></li>
-      <li><a href="#" class="block text-gray-600 hover:text-blue-600">View Result</a></li>
-      <li><a href="#" class="block text-gray-600 hover:text-blue-600">Add Result</a></li>
-      <li><a href="#" class="block text-gray-600 hover:text-blue-600">Help</a></li>
+      <li><a th:href="@{'/home/'}"  class="block text-gray-600 hover:text-blue-600">Home</a></li>
+      <li><a th:href="@{'/home/view-result'}"  class="block text-gray-600 hover:text-blue-600">View Result</a></li>
+      <li><a th:href="@{'/admin/add-result'}"  class="block text-gray-600 hover:text-blue-600">Add Result</a></li>
+      <li><a th:href="@{'/home/help'}"  class="block text-gray-600 hover:text-blue-600">Help</a></li>
     </ul>
   </div>
 </nav>
